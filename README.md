@@ -68,8 +68,68 @@ auto(X_train, X_test, y_train, y_test,
   there will be accuracy and time cost in the .csv file
   
 
+## for regression:
+  ### the input:
+  #### X_train, X_test:
+  with shape (num_samples,num_features)
+
+  #### y_train, y_test:
+  with shape (num_samples,)
+
+  #### dataset 
+  is the for file_name
+
+  #### method 
+  shoule be chosen from ['r_ts_svr','r_ts_neuralnetwork''r_lassoregression','r_svr','r_randomforestregression','r_gradientboostingregression','r_neuralnetwork','r_GaussianNB']
+
+  #### sig_level 
+  is the level of signature you want to use
+
+  #### scale: ['minmax','standard','None']
+  'minmax' is for normalize scale
+  
+  'standard' is for standardize scale
+  
+  'None' is for no scale
+
+  #### time_aug: [True,False]
+  True is for using time as extra feature
+
+
+  #### bins_before, bins_after, bins_current
+  bins_before, bins_after, bins_current will use to make the X_train with shape  (num_samples, num_timestamps, num_features)
+
+  where num_timestamps = bins_before+bins_after+bins_current
+
+  #### file_path
+  the path to save the output csv
+
 
   
+  ### the output
+  the output will be *.csv file
+  #### name
+  {dataset} + {method} + {scale} + {timeaug} + {sig/flat}
+  ##### dataset
+  defined with parameter dataset
+
+  ##### method
+  defined with parameter method
+
+  ##### scale
+  show which scale used
+
+  ##### timeaug
+  _timeaug only shows when the time_aug is True
+
+  ##### _sig/_flat
+  _sig represents signature used
+
+  _flat represent we flatten the (num_samples, num_timestamps, num_features) into (num_samples, num_timestamps*num_features)
+
+
+  #### content
+  there will be r2value, rvalue and time cost in the .csv file
   
 
   
